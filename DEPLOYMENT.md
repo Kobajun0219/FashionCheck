@@ -45,12 +45,12 @@ To get these values:
 
 ```javascript
 const firebaseConfig = {
-  apiKey: "AIzaSyAx_aBtsInvZHawQq2gDI1fPgXm_XMrlmk", // VITE_FIREBASE_API_KEY
-  authDomain: "fashioncheck-2b29b.firebaseapp.com", // VITE_FIREBASE_AUTH_DOMAIN
-  projectId: "fashioncheck-2b29b", // VITE_FIREBASE_PROJECT_ID
-  storageBucket: "fashioncheck-2b29b.appspot.com", // VITE_FIREBASE_STORAGE_BUCKET
-  messagingSenderId: "951196162538", // VITE_FIREBASE_MESSAGING_SENDER_ID
-  appId: "1:951196162538:web:dc13d0378e4f223dca3a93", // VITE_FIREBASE_APP_ID
+  apiKey: "your-api-key-here", // VITE_FIREBASE_API_KEY
+  authDomain: "your-project-id.firebaseapp.com", // VITE_FIREBASE_AUTH_DOMAIN
+  projectId: "your-project-id", // VITE_FIREBASE_PROJECT_ID
+  storageBucket: "your-project-id.appspot.com", // VITE_FIREBASE_STORAGE_BUCKET
+  messagingSenderId: "your-messaging-sender-id", // VITE_FIREBASE_MESSAGING_SENDER_ID
+  appId: "your-app-id", // VITE_FIREBASE_APP_ID
 };
 ```
 
@@ -107,14 +107,14 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 ## 📝 Environment Variables Reference
 
-| Variable                            | Description                  | Example                                     |
-| ----------------------------------- | ---------------------------- | ------------------------------------------- |
-| `VITE_FIREBASE_API_KEY`             | Firebase API key             | `AIzaSyAx_aBtsInvZHawQq2gDI1fPgXm_XMrlmk`   |
-| `VITE_FIREBASE_AUTH_DOMAIN`         | Firebase auth domain         | `fashioncheck-2b29b.firebaseapp.com`        |
-| `VITE_FIREBASE_PROJECT_ID`          | Firebase project ID          | `fashioncheck-2b29b`                        |
-| `VITE_FIREBASE_STORAGE_BUCKET`      | Firebase storage bucket      | `fashioncheck-2b29b.appspot.com`            |
-| `VITE_FIREBASE_MESSAGING_SENDER_ID` | Firebase messaging sender ID | `951196162538`                              |
-| `VITE_FIREBASE_APP_ID`              | Firebase app ID              | `1:951196162538:web:dc13d0378e4f223dca3a93` |
+| Variable                            | Description                  | Example                           |
+| ----------------------------------- | ---------------------------- | --------------------------------- |
+| `VITE_FIREBASE_API_KEY`             | Firebase API key             | `your-api-key-here`               |
+| `VITE_FIREBASE_AUTH_DOMAIN`         | Firebase auth domain         | `your-project-id.firebaseapp.com` |
+| `VITE_FIREBASE_PROJECT_ID`          | Firebase project ID          | `your-project-id`                 |
+| `VITE_FIREBASE_STORAGE_BUCKET`      | Firebase storage bucket      | `your-project-id.appspot.com`     |
+| `VITE_FIREBASE_MESSAGING_SENDER_ID` | Firebase messaging sender ID | `your-messaging-sender-id`        |
+| `VITE_FIREBASE_APP_ID`              | Firebase app ID              | `your-app-id`                     |
 
 ## 🎯 Next Steps
 

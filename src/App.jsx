@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { uploadImage, savePost, getPosts, addComment } from './firebaseService'
-import { db } from './firebase'
+import { db } from './firebase.js'
 import { collection, getDocs } from 'firebase/firestore'
 import './App.css'
 

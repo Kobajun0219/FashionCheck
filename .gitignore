@@ -16,9 +16,6 @@ build/
 .env.production.local
 .env.example
 
-# Firebase config (contains sensitive API keys)
-src/firebase.js
-
 # IDE files
 .vscode/
 .idea/

@@ -15,7 +15,7 @@ import {
   uploadBytes,
   getDownloadURL
 } from 'firebase/storage';
-import { db, storage } from './firebase';
+import { db, storage } from './firebase.js';
 
 // Upload image to Firebase Storage
 export const uploadImage = async (file) => {

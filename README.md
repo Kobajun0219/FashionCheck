@@ -51,6 +51,8 @@ A modern React-based social media application where users can share fashion mome
 
 4. **Configure Firebase**
 
+   **For Local Development:**
+
    ```bash
    # Copy the example configuration
    cp src/firebase.example.js src/firebase.js
@@ -69,6 +71,18 @@ A modern React-based social media application where users can share fashion mome
    };
    ```
 
+   **For Production (Vercel):**
+   Create a `.env.local` file:
+
+   ```bash
+   VITE_FIREBASE_API_KEY=your-api-key
+   VITE_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=your-project-id
+   VITE_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+   VITE_FIREBASE_APP_ID=your-app-id
+   ```
+
 5. **Run the application**
 
    ```bash
@@ -77,6 +91,19 @@ A modern React-based social media application where users can share fashion mome
 
    Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+## 🚀 Deployment
+
+### Vercel Deployment
+
+This app is configured for easy deployment on Vercel. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+**Quick Steps:**
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Set environment variables in Vercel dashboard
+4. Deploy!
+
 ## 📁 Project Structure
 
 ```
@@ -84,7 +111,7 @@ FashionCheck/
 ├── src/
 │   ├── App.jsx              # Main application component
 │   ├── App.css              # Main application styles
-│   ├── firebase.js          # Firebase configuration (not in git)
+│   ├── firebase.js          # Firebase configuration (uses env vars)
 │   ├── firebase.example.js  # Firebase config template
 │   ├── firebaseService.js   # Firebase service functions
 │   ├── main.jsx             # React entry point
@@ -93,6 +120,7 @@ FashionCheck/
 ├── .gitignore              # Git ignore rules
 ├── package.json            # Dependencies and scripts
 ├── vite.config.js          # Vite configuration
+├── DEPLOYMENT.md           # Vercel deployment guide
 └── README.md               # This file
 ```
 
@@ -130,6 +158,7 @@ FashionCheck/
 ### What's Protected
 
 - ✅ Firebase credentials are excluded from git
+- ✅ Environment variables used for production
 - ✅ Only template files are pushed to repository
 - ✅ Each developer needs their own Firebase config
 

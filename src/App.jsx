@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { uploadImage, savePost, getPosts, addComment } from './firebaseService'
-import { db } from './firebase.js'
-import { collection, getDocs } from 'firebase/firestore'
 import './App.css'
 
 function App() {
@@ -16,19 +14,6 @@ function App() {
   useEffect(() => {
     loadPosts()
   }, [])
-
-  const testFirebaseConnection = async () => {
-    try {
-      console.log('Testing Firebase connection...');
-      const querySnapshot = await getDocs(collection(db, 'posts'));
-      console.log('Firebase connection successful!');
-      console.log('Number of posts:', querySnapshot.size);
-      alert('Firebase connection is working! Found ' + querySnapshot.size + ' posts.');
-    } catch (error) {
-      console.error('Firebase connection test failed:', error);
-      alert('Firebase connection failed: ' + error.message);
-    }
-  }
 
   const loadPosts = async () => {
     try {
@@ -95,13 +80,8 @@ function App() {
     }
 
     try {
-      console.log('Attempting to add comment to post:', postId);
-      console.log('Comment text:', commentText);
-
       // Add comment to Firebase
       const comment = await addComment(postId, commentText)
-
-      console.log('Comment added successfully:', comment);
 
       // Update posts state to include the new comment
       setPosts(posts.map(post => {
@@ -119,8 +99,6 @@ function App() {
         ...prev,
         [postId]: ''
       }))
-
-      console.log('Comment state updated successfully');
     } catch (error) {
       console.error('Error in handleAddComment:', error);
 
@@ -149,20 +127,6 @@ function App() {
       <header className="header">
         <h1>FashionCheck SNS</h1>
         <p>Share your fashion moments!</p>
-        <button
-          onClick={testFirebaseConnection}
-          style={{
-            background: '#fff',
-            color: '#667eea',
-            border: 'none',
-            padding: '8px 16px',
-            borderRadius: '20px',
-            cursor: 'pointer',
-            marginTop: '10px'
-          }}
-        >
-          Test Firebase Connection
-        </button>
       </header>
 
       {/* New Post Section */}
@@ -201,7 +165,7 @@ function App() {
         ) : posts.length === 0 ? (
           <div className="no-posts">No posts yet. Be the first to share!</div>
         ) : (
-          posts.map(post => (
+          posts.map((post) => (
             <div key={post.id} className="post">
               <img src={post.imageUrl} alt="Post" className="post-image" />
               <div className="post-content">
@@ -210,11 +174,16 @@ function App() {
                 {/* Comments Section */}
                 <div className="comments-section">
                   <h3>Comments ({post.comments?.length || 0})</h3>
-                  {post.comments?.map(comment => (
-                    <div key={comment.id} className="comment">
-                      <strong>{comment.author}:</strong> {comment.text}
+                  {post.comments && post.comments.length > 0 && (
+                    <div className="comments">
+                      {post.comments.map((comment, index) => (
+                        <div key={comment.id || index} className="comment">
+                          <strong>{comment.author}</strong>
+                          {comment.text}
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  )}
 
                   {/* Add Comment */}
                   <div className="add-comment">

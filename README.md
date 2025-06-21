@@ -52,27 +52,19 @@ A modern React-based social media application where users can share fashion mome
 4. **Configure Firebase**
 
    **For Local Development:**
+   Create a `.env.local` file in your project root:
 
    ```bash
-   # Copy the example configuration
-   cp src/firebase.example.js src/firebase.js
-   ```
-
-   Then edit `src/firebase.js` with your Firebase credentials:
-
-   ```javascript
-   const firebaseConfig = {
-     apiKey: "your-actual-api-key",
-     authDomain: "your-project-id.firebaseapp.com",
-     projectId: "your-project-id",
-     storageBucket: "your-project-id.appspot.com",
-     messagingSenderId: "your-messaging-sender-id",
-     appId: "your-app-id",
-   };
+   VITE_FIREBASE_API_KEY=your-api-key
+   VITE_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=your-project-id
+   VITE_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+   VITE_FIREBASE_APP_ID=your-app-id
    ```
 
    **For Production (Vercel):**
-   Create a `.env.local` file:
+   Set these environment variables in your Vercel dashboard:
 
    ```bash
    VITE_FIREBASE_API_KEY=your-api-key
@@ -112,7 +104,6 @@ FashionCheck/
 │   ├── App.jsx              # Main application component
 │   ├── App.css              # Main application styles
 │   ├── firebase.js          # Firebase configuration (uses env vars)
-│   ├── firebase.example.js  # Firebase config template
 │   ├── firebaseService.js   # Firebase service functions
 │   ├── main.jsx             # React entry point
 │   └── index.css            # Global styles

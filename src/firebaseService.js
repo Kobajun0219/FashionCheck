@@ -72,9 +72,6 @@ export const getPosts = async () => {
 // Add comment to a post
 export const addComment = async (postId, commentText, author) => {
   try {
-    console.log('Adding comment to post:', postId);
-    console.log('Comment text:', commentText);
-
     const postRef = doc(db, 'posts', postId);
 
     // First, let's verify the post exists
@@ -82,8 +79,6 @@ export const addComment = async (postId, commentText, author) => {
     if (!postDoc.exists()) {
       throw new Error(`Post with ID ${postId} does not exist`);
     }
-
-    console.log('Post exists, current data:', postDoc.data());
 
     // Create the comment object with regular timestamp instead of serverTimestamp
     const comment = {
@@ -93,22 +88,14 @@ export const addComment = async (postId, commentText, author) => {
       createdAt: new Date().toISOString() // Use regular timestamp
     };
 
-    console.log('Comment object to add:', comment);
-
     // Use arrayUnion to add the comment to the comments array
     await updateDoc(postRef, {
       comments: arrayUnion(comment)
     });
 
-    console.log('Comment added successfully');
     return comment;
   } catch (error) {
     console.error('Error adding comment:', error);
-    console.error('Error details:', {
-      message: error.message,
-      code: error.code,
-      stack: error.stack
-    });
     throw error;
   }
 };
